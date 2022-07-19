@@ -4,6 +4,106 @@
 @import 'global';
 @import 'mixins';
 
+.header-top {
+    padding-top: 41px;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__link {
+        position: relative;
+        color: rgb(85, 123, 155);
+        font-size:35px;
+        @extend %poppins-400;
+        transition: all .3s;
+        &::before {
+            content: "</";
+            position: absolute;
+            font-size: 30px;
+            top: 4px;
+            left: -29px;
+            opacity: 0;
+            transition: all .3s;
+        }
+        &::after {
+            content: ">";
+            position: absolute;
+            font-size: 30px;
+            top: 5px;
+            left: 146px;
+            opacity: 0;
+            transition: all .3s;
+        }
+    }
+}
 
+.header-top__logo:hover > .header-top__link:hover {
+    color: rgb(91, 163, 223);
+    transition: all .3s;
+}
+
+.header-top__logo:hover > .header-top__link::before {
+    opacity: 1;
+    transition: all .3s;
+}
+
+.header-top__logo:hover > .header-top__link::after {
+    opacity: 1;
+    transition: all .3s;
+}
+
+.menu {
+    &__list {
+        display: flex;
+        align-items: flex-end;
+    }
+    &__item + .menu__item {
+        margin-left: 67px;
+    }
+    &__link {
+        @extend %dmsans-500;
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 26px;
+        color: $gray;
+        transition: all .3s;
+        &:hover {
+            color: #969696;
+        }
+    }
+}
+
+.socials {
+    display: flex;
+    margin-left: 51px;
+    &__link + .socials__link {
+        margin-left: 20px;
+    }
+}
+
+.header-bottom {
+    padding: 239px 0 348px;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__span {
+        display: block;
+        font-weight: 700;
+        font-size: 58px;
+        line-height: 70px;
+    }
+    &__span--blue {
+        color: rgb(74, 143, 221);
+    }
+    &__img {
+        width: 349px;
+        height: 349px;
+        border: 5px solid rgb(74, 143, 221);
+        border-radius: 50%;
+    }
+}
 
 @import 'media';
